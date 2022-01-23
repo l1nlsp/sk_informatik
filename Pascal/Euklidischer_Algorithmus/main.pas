@@ -13,7 +13,7 @@ begin
 			nenner := rest;
 			rest := zaehler mod nenner;
 		end;
-ggt := nenner;
+	ggt := nenner;
 end;
 
 begin
