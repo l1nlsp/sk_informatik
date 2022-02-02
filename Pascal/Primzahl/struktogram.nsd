@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.31-04" preRepeat="bis" postFor="bis" preReturn="zurück" postForIn="in" preWhile="solange" output="Ausgabe" input="Eingabe" preAlt="wenn" preFor="für" preExit="beende" preLeave="verlasse" ignoreCase="true" preThrow="eskaliere" preForIn="für alle" stepFor="Schritt" namespace="" author="l1nlsp" created="2022-02-02" changedby="l1nlsp" changed="2022-02-02" origin="Structorizer 3.31-04" text="&#34;Primzahl&#34;" comment="&#34;n = 2N+1&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;Eingabe n&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;prim :=  true&#34;,&#34;i := 3&#34;,&#34;wurzel := sqrt(n)&#34;,&#34;faktor1 := 1&#34;,&#34;faktor2 := 2&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<while text="&#34;prim = true &amp;&amp; i &#60;= wurzel&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+			<qWhile>
+				<alternative text="&#34;n mod i &#60;&#62; 0&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;i := i + 2&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;prim := false&#34;,&#34;faktor1 := i&#34;,&#34;faktor2 := n div i&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qWhile>
+		</while>
+		<alternative text="&#34;prim = true&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+			<qTrue>
+				<instruction text="&#34;Ausgabe n,&#34;&#34; ist eine Primzahl.&#34;&#34;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qTrue>
+			<qFalse>
+				<instruction text="&#34;Ausgabe n,&#34;&#34; = &#34;&#34;,faktor1,&#34;&#34; * &#34;&#34;,faktor2&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFalse>
+		</alternative>
+	</children>
+</root>
