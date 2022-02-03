@@ -1,0 +1,17 @@
+program dez2bin;
+
+uses SysUtils; {https://programming-idioms.org/idiom/153/concatenate-string-with-integer/1894/pascal}
+
+var n:longint;
+var bin:string;
+
+
+Begin
+  write('Ganze Zahl > 1 eingeben: ');
+  read(n);
+  
+  while n >= 2  do
+    begin
+
+    end;
+end.
