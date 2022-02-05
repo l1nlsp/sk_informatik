@@ -11,9 +11,18 @@ function fak(n:integer):longint;
     fak:=p;
   end;
 
-function pow(b,e:real):real;
+function pow(b:real; e:integer):real;
+  var ergebnis: real;
+  var i:integer;
   begin
-    pow:=exp(e*ln(b));
+    if b<>0 then
+      begin
+        ergebnis:=1;
+        {negative Exponenten nicht erlaubt}
+        for i:=1 to e do ergebnis:=ergebnis*b;
+        pow:=ergebnis;
+      end
+    else pow:=0;
   end;
 
 Begin
@@ -30,20 +39,17 @@ Begin
   x := frac(umkreisungen)*pi;
   
 
-  {Summe falls x!=0}
-  if x <> 0 then
     {Mit 6 Faktoren berechnen um eine Genauigkeit von 2 Nachkommastellen zu erhalten und einen sicheren Df=[-pi,pi]}
     while i <= 6 do
       begin
-        sin:=sin + vorzeichen*pow(abs(x),i*2-1)/fak(i*2-1);
+        sin:=sin + vorzeichen*pow(x,i*2-1)/fak(i*2-1);
         vorzeichen := vorzeichen*-1;
         i:= i+1;
       end;
-
-  {Vorzeichen anpassen falls x = negativ oder volle umkreisungen = ungerade }
-  if (x < 0) or (trunc(umkreisungen) mod 2 <> 0) then sin := -1*sin;
-
+  
+  {Wenn Anzahl von ganzen Umkreisungen ungerade ist, dann aendert sich das Vorzeichen}
+  if trunc(umkreisungen) mod 2 <> 0 then sin := -1*sin;
+  
   writeln('Sin(x) = ',sin:0:3);
-
 end.
 
